@@ -28,7 +28,7 @@ public class Machine implements Serializable {
 
     @ManyToOne
     @JoinColumn (name = "idC")
-    @JsonIgnoreProperties("machine")
+    @JsonIgnoreProperties("machines")   // cambio con s
     private Category category;
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "machine")
     @JsonIgnoreProperties({"machine", "client"})
