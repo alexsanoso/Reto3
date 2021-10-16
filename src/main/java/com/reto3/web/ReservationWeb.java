@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-@RequestMapping("/Reservation/")
+@RequestMapping("/api/Reservation/")
 public class ReservationWeb {
     @Autowired
     private ReservationApi reservationApi;
