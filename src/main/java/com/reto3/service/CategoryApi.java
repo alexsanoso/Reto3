@@ -25,10 +25,10 @@ public class CategoryApi {
     }
 
     public Category save(Category category){
-        if (category.getIdCategory() == null){
+        if (category.getId() == null){
             return categoryRepository.save(category);
         }else{
-            Optional<Category> evt = categoryRepository.getCategory(category.getIdCategory());
+            Optional<Category> evt = categoryRepository.getCategory(category.getId());
             if(evt.isEmpty()){
                 return categoryRepository.save(category);
             }else{

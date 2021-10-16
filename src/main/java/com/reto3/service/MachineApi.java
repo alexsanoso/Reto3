@@ -25,10 +25,10 @@ public class MachineApi {
     }
 
     public Machine save(Machine machine){
-        if(machine.getIdMachine()==null){
+        if(machine.getId()==null){
             return machineRepository.save(machine);
         }else{
-            Optional<Machine> evt = machineRepository.getMachine(machine.getIdMachine());
+            Optional<Machine> evt = machineRepository.getMachine(machine.getId());
             if(evt.isEmpty()){
                 return machineRepository.save(machine);
             }else{

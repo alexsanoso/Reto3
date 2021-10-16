@@ -15,8 +15,8 @@ import java.util.List;
 public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Integer idCategory;
+    @Column(name = "idC", nullable = false)
+    private Integer id;
     @Column(name = "name")
     private String name;
     @Column(name = "description")
@@ -25,12 +25,12 @@ public class Category implements Serializable {
     @JsonIgnoreProperties("category")
     private List<Machine> machine;
 
-    public Integer getIdCategory() {
-        return idCategory;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCategory(Integer idCategory) {
-        this.idCategory = idCategory;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -15,8 +15,8 @@ public class Machine implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Integer idMachine;
+    @Column(name = "idM", nullable = false)
+    private Integer id;
     @Column(name = "name")
     private String name;
     @Column(name = "brand")
@@ -27,7 +27,7 @@ public class Machine implements Serializable {
     private String description;
 
     @ManyToOne
-    @JoinColumn (name = "idCategory")
+    @JoinColumn (name = "idC")
     @JsonIgnoreProperties("machine")
     private Category category;
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "machine")
@@ -37,12 +37,12 @@ public class Machine implements Serializable {
     @JsonIgnoreProperties("machine")
     private List<Reservation> reservations;
 
-    public Integer getIdMachine() {
-        return idMachine;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdMachine(Integer idMachine) {
-        this.idMachine = idMachine;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
