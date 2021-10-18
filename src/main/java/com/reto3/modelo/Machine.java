@@ -1,5 +1,6 @@
 package com.reto3.modelo;
 
+// Importaciones
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
@@ -7,12 +8,14 @@ import javax.persistence.*;
 
 /**
  *
- * @author Alexander
+ * @author Alexander Sánchez Osorio
  */
 @Entity
 @Table(name = "machine")
 public class Machine implements Serializable {
-
+    /*
+    *Variables para las tablas
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idM", nullable = false)
@@ -26,9 +29,12 @@ public class Machine implements Serializable {
     @Column(name = "description")
     private String description;
 
+    /*
+    *Relación mucho a uno para categoría
+     */
     @ManyToOne
     @JoinColumn (name = "idC")
-    @JsonIgnoreProperties("machines")   // cambio con s
+    @JsonIgnoreProperties("machines")
     private Category category;
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "machine")
     @JsonIgnoreProperties({"machine", "client"})
@@ -37,6 +43,9 @@ public class Machine implements Serializable {
     @JsonIgnoreProperties("machine")
     private List<Reservation> reservations;
 
+    /*
+    *Getters y setters para las variables
+     */
     public Integer getId() {
         return id;
     }
