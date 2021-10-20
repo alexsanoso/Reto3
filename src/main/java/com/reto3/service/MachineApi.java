@@ -13,17 +13,35 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MachineApi {
+
+    /**
+     * Atributo autowired machine
+     */
     @Autowired
     private MachineRepository machineRepository;
 
+    /**
+     * método para obtener todos los machine
+     * @return
+     */
     public List<Machine> getAll(){
         return machineRepository.getAll();
     }
 
+    /**
+     * método para obtener machine por id
+     * @param id
+     * @return
+     */
     public Optional<Machine> getMachine(int id){
         return machineRepository.getMachine(id);
     }
 
+    /**
+     * método save para machine
+     * @param machine
+     * @return
+     */
     public Machine save(Machine machine){
         if(machine.getId()==null){
             return machineRepository.save(machine);

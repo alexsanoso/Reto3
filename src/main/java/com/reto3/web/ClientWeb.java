@@ -16,19 +16,36 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api/Client/")
 public class ClientWeb {
+    /**
+     * Atributo autowired client
+     */
     @Autowired
     private ClientApi clientApi;
 
+    /**
+     * método para obtener todos los clientes
+     * @return
+     */
     @GetMapping("all")
     public List<Client> getAll(){
         return clientApi.getAll();
     }
 
+    /**
+     * método para obtener cada cliente por id
+     * @param id
+     * @return
+     */
     @GetMapping("{id}")
     public Optional<Client> getClient(@PathVariable("id") int id){
         return clientApi.getClient(id);
     }
 
+    /**
+     * método para guardar los clientes
+     * @param client
+     * @return
+     */
     @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client client){

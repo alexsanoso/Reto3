@@ -16,19 +16,36 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api/Category/")
 public class CategoryWeb {
+    /**
+     * atributo autowired category
+     */
     @Autowired
     private CategoryApi categoryApi;
 
+    /**
+     * método para obtener todas las categorias
+     * @return
+     */
     @GetMapping("all")
     public List<Category> getAll(){
         return categoryApi.getAll();
     }
 
+    /**
+     * método para obtener cada category por id
+     * @param id
+     * @return
+     */
     @GetMapping("{id]")
     public Optional<Category> getCategory(@PathVariable("id") int id){
         return categoryApi.getCategory(id);
     }
 
+    /**
+     * método para guardar cada categoria
+     * @param category
+     * @return
+     */
     @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Category save(@RequestBody Category category){

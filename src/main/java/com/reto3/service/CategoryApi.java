@@ -13,17 +13,34 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @Service
 public class CategoryApi {
+    /**
+     * Atributo autowired para category
+     */
     @Autowired
     private CategoryRepository categoryRepository;
 
+    /**
+     * método para obtener todos los category
+     * @return
+     */
     public List<Category> getAll(){
         return (List<Category>) categoryRepository.getAll();
     }
 
+    /**
+     * método para obtener category por id
+     * @param id
+     * @return
+     */
     public Optional<Category> getCategory(int id){
         return categoryRepository.getCategory(id);
     }
 
+    /**
+     * método save para category
+     * @param category
+     * @return
+     */
     public Category save(Category category){
         if (category.getId() == null){
             return categoryRepository.save(category);

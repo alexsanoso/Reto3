@@ -13,17 +13,35 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ClientApi {
+
+    /**
+     * Atributo autowired client
+     */
     @Autowired
     private ClientRepository clientRepository;
 
+    /**
+     * método para obtener todos los client
+     * @return
+     */
     public List<Client> getAll(){
         return clientRepository.getAll();
     }
 
+    /**
+     * método para obtener client por id
+     * @param id
+     * @return
+     */
     public Optional<Client> getClient(int id){
         return clientRepository.getClient(id);
     }
 
+    /**
+     * método save para client
+     * @param client
+     * @return
+     */
     public Client save(Client client){
         if (client.getIdClient() == null){
             return clientRepository.save(client);

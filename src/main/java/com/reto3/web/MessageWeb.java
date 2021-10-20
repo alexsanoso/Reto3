@@ -16,19 +16,36 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api/Message/")
 public class MessageWeb {
+    /**
+     * atributo autowired message
+     */
     @Autowired
     private MessageApi messageApi;
 
+    /**
+     * método para obtener todos los mensajes
+     * @return
+     */
     @GetMapping("all")
     public List<Message> getAll(){
         return messageApi.getAll();
     }
 
+    /**
+     * método para obtener mensajes por id
+     * @param id
+     * @return
+     */
     @GetMapping("{id}")
     public Optional<Message> getMessage(@PathVariable("id") int id){
         return messageApi.getMessage(id);
     }
 
+    /**
+     * método para guardar los mensajes
+     * @param message
+     * @return
+     */
     @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Message save(@RequestBody Message message){

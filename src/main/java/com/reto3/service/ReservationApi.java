@@ -13,17 +13,34 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ReservationApi {
+    /**
+     * atributo para autowired reservation
+     */
     @Autowired
     private ReservationRepository reservationRepository;
 
+    /**
+     * método para obtener todos los reservation
+     * @return
+     */
     public List<Reservation> getAll(){
         return  reservationRepository.getAll();
     }
 
+    /**
+     * método para obtener reservation por id
+     * @param id
+     * @return
+     */
     public Optional<Reservation> getReservation(int id){
         return reservationRepository.getReservation(id);
     }
 
+    /**
+     * método save para reservation
+     * @param reservation
+     * @return
+     */
     public Reservation save(Reservation reservation){
         if (reservation.getIdReservation() == null){
             return reservationRepository.save(reservation);

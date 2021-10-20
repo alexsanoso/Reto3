@@ -13,17 +13,34 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MessageApi {
+    /**
+     * Atributo autowired message
+     */
     @Autowired
     private MessageRepository messageRepository;
 
+    /**
+     * método para obtener todos los message
+     * @return
+     */
     public List<Message> getAll(){
         return messageRepository.getAll();
     }
 
+    /**
+     * método para obtener message por id
+     * @param id
+     * @return
+     */
     public Optional<Message> getMessage(int id){
         return messageRepository.getMessage(id);
     }
 
+    /**
+     * método save para message
+     * @param message
+     * @return
+     */
     public Message save(Message message){
         if(message.getIdMessage() == null){
             return messageRepository.save(message);
