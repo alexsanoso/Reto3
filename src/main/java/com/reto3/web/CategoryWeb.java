@@ -51,5 +51,17 @@ public class CategoryWeb {
     public Category save(@RequestBody Category category){
         return categoryApi.save(category);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Category update(@RequestBody Category category) {
+        return categoryApi.update(category);
+    }
+
+    @DeleteMapping("delete")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int categoryId) {
+        return categoryApi.deleteCategory(categoryId);
+    }
 }
 
